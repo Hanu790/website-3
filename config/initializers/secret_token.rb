@@ -18,4 +18,4 @@ require 'securerandom'
 		end
 	end
 
-Website::Application.config.secret_key_base = secure_token
+Website::Application.config.secret_token = secure_token

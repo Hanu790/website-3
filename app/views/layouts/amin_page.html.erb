@@ -2,20 +2,20 @@
 <html>
 <head>
   <title>Website</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag "application", media: "all" , "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" =>true %>
   <%= csrf_meta_tags %>
+  <%= render 'layouts/shim' %>
 </head>
 <body>
-	<header class="nav navbar navbar-fixed-top">
-		<ul class="nav nav-pills">
-			<li class="active"><a href="#">Home</a></li>
-			<li><a href="#">About</a></li>
-			<li><a href="#">Contact</a></li>
-		</ul>
-	</header>
+	<%= render "layouts/header"%>
+	<div class="container">
+		<%= yield %>
+		<hr>
+		<%= render "layouts/footer" %>
+		<%= debug(params) if Rails.env.development? %>
+	</div>
 
-<%= yield %>
 
 </body>
 </html>

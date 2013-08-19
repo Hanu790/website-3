@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container-fluid">
 	<div class="row-fluid">
 		<div class="span4 offset3">
@@ -18,3 +19,32 @@
 		</div>
 	</div>
 </div>
+=======
+<%= provide(:title,"Sign up") %>
+<div class="container">
+	<div class="row">
+		<div class="span6 offset3">
+			<%= form_for (@user), :html => {class: 'form-horizontal well'} do |f| %>
+				<fieldset>
+					<legend>Sign up</legend>					
+						<%= render 'shared/error_messages' %>
+					 	<%= f.label :name %>
+					    <%= f.text_field :name %>
+
+					    <%= f.label :email %>
+					    <%= f.text_field :email %>
+
+					    <%= f.label :password %>
+					    <%= f.password_field :password %>
+
+					    <%= f.label :password_confirmation, "Confirmation" %>
+					    <%= f.password_field :password_confirmation %>
+
+					    <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+					<% end %>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</div>
+>>>>>>> sign-up

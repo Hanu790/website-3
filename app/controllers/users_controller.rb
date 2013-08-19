@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-class UsersController < ApplicationController
- # layout: admin_page
-  def new
-  end
-  def index
-  end
-end
-=======
 class UsersController < ApplicationController
 	def index
 

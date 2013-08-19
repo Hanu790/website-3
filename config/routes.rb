@@ -1,12 +1,14 @@
 Website::Application.routes.draw do
+  resources :static_pages
+  resources :users
+  # get "users/new"
 
-  get "users/new"
-
-  get "static_pages/home"
+  # get "static_pages/home"
   # get "static_pages/about"
   
   root to: "static_pages#index"
-  resources :static_pages
+  match "/signup", to: "users#new", via:'get'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  include ActiveModel::ForbiddenAttributesProtection 
+  #include ActiveModel::ForbiddenAttributesProtection 
   before_save{email.downcase!}
 
   attr_accessible :email, :name

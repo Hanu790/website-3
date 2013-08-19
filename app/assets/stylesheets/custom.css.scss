@@ -10,6 +10,15 @@ $grayMediumLight: #eaeaea;
 	box_sizing: border-box;
 }
 
+/*miscellaneous*/
+.debug_dump{
+	clear: both;
+	float: left;
+	width: 100%;
+	margin-top: 45px;
+	@include box_sizing;
+}
+
 /* universal */
 html{overflow-y: scroll;}
 body{padding-top: 60px;}
@@ -79,13 +88,8 @@ footer{
 		list-style: none;
 		li{float: left; margin-left: 10px;}
 	}
-
 }
+tr:nth-child(odd) > td{
 
-
-
-
-
-
-
-
+	background-color:#3EB6B1;
+}

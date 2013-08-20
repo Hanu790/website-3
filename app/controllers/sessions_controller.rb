@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 		if user && user.authenticate(params[:session][:password])
 			#redirect to profile
 			sign_in user
-			redirect_to user
+			redirect_to user, :notice => "Hello #{user.name}!"
 		else
 			#flash error
 			flash[:error]="Invalid Email or Password combination"

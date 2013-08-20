@@ -3,18 +3,32 @@
 	<div class="row">
 		<div class="span6 offset3">
 
-			<%= form_for(:session, url: sessions_path) do |f| %>
+ 			<%= form_for(:session, url: sessions_path) do |f| %>
 				<fieldset>
 					<legend>Sign in</legend>
 					<%= f.label :email %>
 					<%= f.text_field :email %>
 					<%= f.label :password %>
 					<%= f.password_field :password %>
+					<%= f.check_box :remember_me, {},1 %><%= f.label :remember_me, "Remember me" %>
 					<%= f.submit "Sign in", class: "btn" %>
 					<br/> New user? <%= link_to "Sign Up now!", signup_path %>		
 				</fieldset>
 			<% end %>
 
+
+			<%#= form_tag sessions_path do %>
+				<%#= label_tag :email %>
+				<%#= text_field_tag :email %>
+
+				<%#= label_tag :password %>
+				<%#= password_field_tag :password %>
+				<!-- <div class="field"> -->
+				<%#= label_tag :remember_me %>
+				<%#= check_box_tag :remember_me, 1, params[:remember_me] %>
+				<!-- </div>
+				<div><%#= submit_tag "Log in" %></div> -->
+			<%# end %>
 		</div>
 	</div>
 </div>

@@ -1,12 +1,18 @@
 Website::Application.routes.draw do
-  resources :static_pages
-  resources :users
-  resources :sessions, only:[:new,:create,:destroy]
+
+
   
+  #get "password_resets/new"
+
   root to: "static_pages#index"
   match "/signup", to: "users#new", via:'get'
   match "/signin", to: "sessions#new", via:'get'
   match "/signout", to: "sessions#destroy", via:'delete'
+
+  resources :static_pages
+  resources :users
+  resources :sessions, only:[:new,:create,:destroy]
+  resources :password_resets
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

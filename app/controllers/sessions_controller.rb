@@ -5,8 +5,7 @@ class SessionsController < ApplicationController
 	
 	def create	
 		user = User.find_by_email(params[:session][:email].downcase)
-			# render :json => @user.to_json
-			# return
+
 		if user && user.authenticate(params[:session][:password])
 			#redirect to profile
 			sign_in user

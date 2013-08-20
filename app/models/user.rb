@@ -17,6 +17,9 @@ class User < ActiveRecord::Base
   has_secure_password
 
 
+
+
+
   #CREATE REMEMBER TOKEN FOR AUTHENTICATE SESSION
   def create_remember_token
     self.remember_token = User.encrypt(User.new_remember_token)

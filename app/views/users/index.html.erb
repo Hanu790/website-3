@@ -1,10 +1,11 @@
 <h1>User list</h1>
-<div class="container-fluid">
-	<div class="row-fluid">
+<div class="container">
+	<div class="row">
 		<div class="span6 offset3">
-			<table class="table table-bordered">
+			<% if current_user.admin?%>
+			<table class="table table-bordered table-striped">
 				<thead>
-					<tr>
+					<tr class="center">
 						<th>#</th>
 						<th>Username</th>
 						<th>Email</th>
@@ -12,51 +13,17 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>1</td>
-						<td>Phoenixta</td>
-						<td>phoenixta@mail.com</td>
-						<td>......</td>
-					</tr>	
-					<tr>
-						<td>2</td>
-						<td>Phoenixta</td>
-						<td>phoenixta@mail.com</td>
-						<td>......</td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td>Phoenixta</td>
-						<td>phoenixta@mail.com</td>
-						<td>......</td>
-					</tr>
-					<tr>
-						<td>4</td>
-						<td>Phoenixta</td>
-						<td>phoenixta@mail.com</td>
-						<td>......</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>Phoenixta</td>
-						<td>phoenixta@mail.com</td>
-						<td>......</td>
-					</tr>	
-					<tr>
-						<td>6</td>
-						<td>Phoenixta</td>
-						<td>phoenixta@mail.com</td>
-						<td>......</td>
-					</tr>
-					<tr>
-						<td>7</td>
-						<td>Phoenixta</td>
-						<td>phoenixta@mail.com</td>
-						<td>......</td>
-					</tr>			
+					<% @users.each do |user| %>
+						<tr>
+							<th><%= user.id %></th>
+							<th><%= user.name %></th>
+							<th><%= user.email %></th>
+							<th><%= link_to "Edit", edit_user_path(user)%> | <%= link_to "Delete", user, method: :delete, data: {confirm: "Are you sure?"}%> </th>
+						</tr>
+					<% end %>
 				</tbody>
 			</table>
+			<% end %>
 		</div>
 	</div>
-
 </div>

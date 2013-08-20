@@ -10,7 +10,8 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 		if @user.save
 			#handle successfully
-			flash[:success]="Account has created!"
+			sign_in @user
+			flash.now[:success]="Account has created!"
 			redirect_to @user
 		else
 			#handle fail
@@ -37,4 +38,4 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name,:email,:password,:password_confirmation)
     end
 end
->>>>>>> sign-up
+

@@ -13,6 +13,8 @@ class UsersController < ApplicationController
 		#@user = User.new(params[:user])
 		@user = User.new(user_params)
 		if @user.save
+			#Send Email to confirmation
+			UserMailer.registration_confirmation(@user).deliver
 			#handle successfully
 			sign_in @user
 			flash.now[:success]="Account has created!"

@@ -34,7 +34,7 @@ module SessionsHelper
 	#chuyen huong ng dung
 	def redirect_back_or(default)
 		redirect_to(session[:return_to]|| default)
-		session.delte(:return_to)
+		session.delete(:return_to)
 	end
 	#Luu tru location truoc do
 	def store_location

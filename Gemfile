@@ -6,9 +6,12 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'bootstrap-sass','2.3.2'
 # To use Strong parameters
 gem 'strong_parameters'
-# Gem thin
-# gem 'thin'
-# gem 'therubyracer'
+#Create user, post sample
+gem 'faker', '1.1.2'
+#Paginate
+gem 'will_paginate','3.0.4'
+gem 'bootstrap-will_paginate','0.0.9'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 group :development, :test do

@@ -9,7 +9,8 @@ class SessionsController < ApplicationController
 			#redirect to profile
 			sign_in user
 			#tra ve profile hoac vi tri truoc khi dang nhap
-			redirect_back_or user, :notice => "Hello #{user.name}!"
+			flash[:success] = "Hello #{user.name}!"
+			redirect_back_or user
 		else
 			#flash error
 			flash[:error]="Invalid Email or Password combination"

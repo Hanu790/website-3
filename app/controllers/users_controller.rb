@@ -2,9 +2,10 @@ class UsersController < ApplicationController
 	before_filter :non_signed_in_user, only: [:index, :edit, :update, :destroy]
 	before_filter :correct_user, only: [:edit, :update, :edit_password,:update_password]
 	before_filter :admin_user, only: :destroy
-
+	helper_method :sort_direction, :sort_column
 	def index
-		@users= User.paginate(page: params[:page], per_page: 15)
+		#@users= User.paginate(page: params[:page], per_page: 15)
+		@users = User.order(sort_column + " " + sort_direction)
 	end
 	def new
 		@user = User.new
@@ -95,5 +96,14 @@ class UsersController < ApplicationController
 		@user= User.find(params[:id])
 		redirect_to (root_url) unless current_user?(@user)
 	end
+
+	private
+		def sort_column
+			User.column_names.include?(params[:sort]) ? params[:sort] :  "id"
+		end
+
+		def sort_direction
+			%w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+		end
 end
 

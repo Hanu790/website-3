@@ -1,15 +1,16 @@
 <h1>User list</h1>
-
 <div class="container">
 	<div class="row">
-		<%= will_paginate %>
+		<div class="pull-left"><%= link_to "New User", signup_path %></div>
+		<%#= will_paginate %>
 		<div class="span9 offset1">
 			<table class="table table-bordered table-striped">
 				<thead>
 					<tr class="center">
-						<th>#</th>
-						<th class="span4">Username</th>
-						<th class="span4">Email</th>
+						<th><%= sortable "id", '#' %></th>
+						<th class="span3"><%= sortable "name","Username" %></th>
+						<th class="span3"><%= sortable "email"%></th>
+						<th class="span3"><%= sortable "created_at", "Created at" %></th>
 						<th class="span2">....</th>
 					</tr>
 				</thead>
@@ -19,6 +20,7 @@
 							<th><%= user.id %></th>
 							<th><%= user.name %></th>
 							<th><%= user.email %></th>
+							<th><%= user.created_at.strftime("%B %e,%Y")%></th>
 							<th><%= link_to "View", user_path(user) %> 
 								<% if current_user.admin? && !current_user?(user) %>
 									| <%= link_to "Delete", user, method: :delete, data: {confirm: "Are you sure?"}%>
@@ -29,7 +31,7 @@
 				</tbody>
 			</table>
 		</div>
-	<%= will_paginate %>
+	<%#= will_paginate %>
 	</div>
 </div>
 

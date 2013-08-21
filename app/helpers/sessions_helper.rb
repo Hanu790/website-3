@@ -30,4 +30,15 @@ module SessionsHelper
 	def signed_in? #Signed roi
 		!current_user.nil? #Current_user ko nil
 	end
+
+	#chuyen huong ng dung
+	def redirect_back_or(default)
+		redirect_to(session[:return_to]|| default)
+		session.delte(:return_to)
+	end
+	#Luu tru location truoc do
+	def store_location
+		session[:return_to] = request.url
+	end
+
 end

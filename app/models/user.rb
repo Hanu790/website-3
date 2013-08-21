@@ -11,9 +11,17 @@ class User < ActiveRecord::Base
   					format: {with: VALID_EMAIL_REGEX},
   					uniqueness: {case_sensitive: false}
   
-  validates :password,presence: true, length: {minimum:6}, :on => :create
-  validates :password_confirmation , presence:true, on: :create
-  #validates :password, :presence => {:if => :password_required?}, :confirmation=>true
+  validates :password, presence: true, 
+                       length: {minimum: 6}, on: :create
+                       #confirmation: true,
+                       #:if => :password
+                       #:on => [:create, :update]
+  validates :password_confirmation, presence: true, 
+                                    on: :update, 
+                                    :unless =>lambda{|user| user.password.blank?}
+                       
+  # validates :password_confirmation , presence:true, on: :create
+  # validates :password, :presence => {:if => :password_required?}, :confirmation=>true
   has_secure_password
 
 

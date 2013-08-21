@@ -10,7 +10,13 @@ Website::Application.routes.draw do
   match "/signout", to: "sessions#destroy", via:'delete'
 
   resources :static_pages
-  resources :users
+  resources :users do
+    member do
+      get :edit_password #for the user#edit_password action
+      put :update_password #for the user#update_password action
+    end
+  end 
+
   resources :sessions, only:[:new,:create,:destroy]
   resources :password_resets
 

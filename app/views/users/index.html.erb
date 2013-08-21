@@ -18,7 +18,7 @@
 							<th><%= user.id %></th>
 							<th><%= user.name %></th>
 							<th><%= user.email %></th>
-							<th><%= link_to "Edit", edit_user_path(user)%> | <%= link_to "Delete", user, method: :delete, data: {confirm: "Are you sure?"}%> </th>
+							<th><%= link_to "View", user_path(user) %> | <%= link_to "Delete", user, method: :delete, data: {confirm: "Are you sure?"}%> </th>
 						</tr>
 					<% end %>
 				</tbody>

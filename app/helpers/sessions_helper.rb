@@ -27,8 +27,15 @@ module SessionsHelper
 		@current_user ||= User.find_by_remember_token(remember_token)
 	end
 
-	def signed_in? #Signed roi
+	def signed_in? #kiem tra signed in ?
 		!current_user.nil? #Current_user ko nil
+	end
+
+	def signed_in_user #User already signed
+		unless signed_in?
+			store_location
+			redirect_to signin_url, notice:"please sign in."
+		end
 	end
 
 	#chuyen huong ng dung

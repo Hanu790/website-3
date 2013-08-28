@@ -1,4 +1,18 @@
 <% provide(:title, "Profile") %>
-
-<h1> Profile User: </h1><%= @user.name %>
-<h2><%= @user.email %></h2>
+<div class="container">
+<div class="span1 offset1">
+	<h2>Username: <%= @user.name %></h2>
+	<h2><%= @user.email %></h2>
+	<h2><%= pluralize(current_user.posts.count,"micropost")%></h2>
+</div>
+<div class="posts span6 offset1">
+	<% if @user.posts.any? %>
+		<% @user.posts.each do |post| %>
+			<h5><%= link_to post.title, post_path(post) %></h5>
+			<span class="content"><%#= @post.content %> </span>
+			<span class= "timestamp">Posted: <%= time_ago_in_words(post.created_at)%> ago.</span>
+			<p>Post by: <%= post.user.name %>
+		<% end %>
+	<% end %>
+</div>
+</div>

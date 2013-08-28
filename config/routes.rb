@@ -1,13 +1,10 @@
 Website::Application.routes.draw do
-
-
-  
-  #get "password_resets/new"
-
   root to: "static_pages#index"
+
   match "/signup", to: "users#new", via:'get'
   match "/signin", to: "sessions#new", via:'get'
   match "/signout", to: "sessions#destroy", via:'delete'
+  
 
   resources :static_pages
   resources :users do
@@ -16,7 +13,7 @@ Website::Application.routes.draw do
       put :update_password #for the user#update_password action
     end
   end 
-
+  resources :posts
   resources :sessions, only:[:new,:create,:destroy]
   resources :password_resets
 

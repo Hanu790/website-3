@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   include ActiveModel::ForbiddenAttributesProtection 
+  has_many :posts, dependent: :destroy
   
   before_save{email.downcase!}
   before_create :create_remember_token

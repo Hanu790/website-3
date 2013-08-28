@@ -2,12 +2,12 @@
 <div class="container">
 	<div class="row">
 		<div class="pull-left"><%= link_to "New User", signup_path %></div>
-		<%#= will_paginate %>
+		<%= will_paginate %>
 		<div class="span9 offset1">
 			<table class="table table-bordered table-striped">
 				<thead>
 					<tr class="center">
-						<th><%= sortable "id", '#' %></th>
+						<th class="span2"><%= sortable "id", '#' %></th>
 						<th class="span3"><%= sortable "name","Username" %></th>
 						<th class="span3"><%= sortable "email"%></th>
 						<th class="span3"><%= sortable "created_at", "Created at" %></th>
@@ -31,7 +31,7 @@
 				</tbody>
 			</table>
 		</div>
-	<%#= will_paginate %>
+	<%= will_paginate %>
 	</div>
 </div>
 

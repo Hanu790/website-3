@@ -33,7 +33,9 @@ p{font-size:1.1em;line-height:1.7em;}
     &:hover{color:#fff;text-decoration:none;}
   }
 
-
+.navbar-search .search-query{
+  margin-top: 3px;
+}
 /* footer */
 footer {margin-top: 45px;padding-top: 5px;border-top: 1px solid $grayMediumLight;color: $grayLight;
   a {color: $gray;
@@ -187,7 +189,30 @@ aside{
 .table th .desc{
   background-image: url("down_arrow.png");
 }
+/*Cách 2*/
+// th .asc:after {
+//   width: 0;
+//   height: 0;
+//   content: "";
+//   border-left: 5px solid transparent;
+//   border-right: 5px solid transparent;
+//   border-top: 5px solid #333;
+//   position: absolute;
+//   margin-top: 7px;
+//   margin-left: 5px;
+// }
 
+// th .desc:after {
+//   width: 0;
+//   height: 0;
+//   content: "";
+//   border-left: 5px solid transparent;
+//   border-right: 5px solid transparent;
+//   border-bottom: 5px solid #333;
+//   position: absolute;
+//   margin-top: 7px;
+//   margin-left: 5px;
+// }
 
 
 

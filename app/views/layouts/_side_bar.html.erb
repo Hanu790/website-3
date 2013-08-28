@@ -1,0 +1,9 @@
+<% if signed_in? %>
+<div class="nav nav-list">
+	<ul class="span2 offset1"
+		<li><%= link_to "#{current_user.name}", current_user%></li>
+		<li><%= link_to "Edit user", edit_user_path(current_user) %></li>
+		<li><%= link_to "New post", new_post_path %></li>
+	</ul>
+</div>
+<% end %>

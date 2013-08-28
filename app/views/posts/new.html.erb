@@ -1,0 +1,13 @@
+<div class="row">
+	<div class="span8 offset4">
+	<h1>Create new post</h1>
+	<%= form_for @post do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>
+		<%= f.label :title %>
+		<%= f.text_field :title %>
+		<%= f.label :content %>
+		<%= f.text_area :content, size: "5x10" %>
+		<%= f.submit "Save post", class: "btn"%>
+	<% end %>
+	</div>
+</div>

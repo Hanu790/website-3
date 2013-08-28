@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130826063517) do
+ActiveRecord::Schema.define(:version => 20130828095216) do
 
   create_table "posts", :force => true do |t|
     t.string   "title"
@@ -34,6 +34,10 @@ ActiveRecord::Schema.define(:version => 20130826063517) do
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
     t.boolean  "admin",                  :default => false
+    t.string   "avarta_file_name"
+    t.string   "avarta_content_type"
+    t.integer  "avarta_file_size"
+    t.datetime "avarta_updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

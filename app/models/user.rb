@@ -25,8 +25,16 @@ class User < ActiveRecord::Base
   # validates :password, :presence => {:if => :password_required?}, :confirmation=>true
   has_secure_password
 
-
-
+  has_attached_file :avarta, :styles => {:small => "100x100>"},
+                                :default_url => "images/default_avarta.jpg",
+  #:url => "/system/:attachment/:id/:style/:basename.:extension",
+  #:path => ":rails_root/public/system/:attachment/:id/:style/:basename.:extension"
+  :url => "/assets/users/:id/:style/:basename.:extension",
+  :path => ":rails_root/public/assets/users/:id/:style/:basename.:extension"
+  #validates_attachment :avarta, :content_type => ["image/jpg","image/png","image/jpeg"], :not => "image/gif"
+  validates_attachment_presence :avarta
+  validates_attachment_size :avarta, :less_than =>5.megabytes
+validates_attachment_content_type :photo, :content_type =>["image/jpg","image/png","image/jpeg","image/gif"]
 
 
   #CREATE REMEMBER TOKEN FOR AUTHENTICATE SESSION

@@ -3,18 +3,7 @@
 	<div class="row">
 		<%= render 'users/left_nav' %>
 		<div class="span6 offset2">
-			<%= form_for @user, class: "form-horizontal well" do |f| %>
-				<%= render 'shared/error_messages', object: f.object %>
-				<fieldset>
-					<legend>EDIT</legend>
-					<%= f.label :name %>
-					<%= f.text_field :name %>
-					
-					<%= f.label :email %>
-					<%= f.text_field :email %>
-					<%= f.submit "Save changes", class: "btn" %>
-				</fieldset>
-			<% end %>
+			<%= render :partial => 'form' %>
 		</div>
 	</div>
 </div>

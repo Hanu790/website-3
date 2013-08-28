@@ -1,0 +1,15 @@
+<%= form_for @user, :html=>{:multipart=>true},class: "form-horizontal well" do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>
+	<fieldset>
+		<legend>EDIT</legend>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+
+		<%= f.label :email %>
+		<%= f.text_field :email %>
+
+		<%= f.file_field :avarta %>
+		
+		<%= f.submit "Save changes", class: "btn" %>
+	</fieldset>
+<% end %>
